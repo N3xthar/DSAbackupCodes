@@ -1,0 +1,132 @@
+1. Memory Areas in C++
+
+Stack → Fast, automatic memory (local variables, static objects).
+
+Heap → Big memory pool, manual management (dynamic objects).
+
+
+
+🔹 2. Static Memory Allocation
+
+Memory assigned at compile time.
+
+Object lives until scope ends.
+
+No need to manually delete.
+
+ClassName obj(parameters);  // object with name
+
+
+#include <iostream>
+using namespace std;
+
+class Student {
+    string name;
+    int age;
+
+public:
+    Student(string n, int a) {
+        name = n; age = a;
+    }
+    void display() {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+int main() {
+    Student s1("Aman", 20);  // static object (stack)
+    s1.display();            // accessed using .
+}
+
+
+
+
+
+3. Dynamic Memory Allocation
+
+Memory assigned at runtime using new.
+
+Object has no name, only a pointer refers to it.
+
+Must free memory manually using delete.
+
+Syntax:
+ClassName *ptr = new ClassName(parameters);  // pointer to heap object
+
+
+#include <iostream>
+using namespace std;
+
+class Student {
+    string name;
+    int age;
+
+public:
+    Student(string n, int a) {
+        name = n; age = a;
+    }
+    void display() {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+int main() {
+    Student *s2 = new Student("Deep", 22);  // dynamic object (heap)
+    s2->display();                          // accessed using ->
+    delete s2;                              // must free memory
+}
+
+
+
+
+
+
+4. Pointer (*) and Arrow Operator (->)
+
+* → says this variable stores an address, not actual object.
+
+-> → used to access members of object through pointer.
+
+
+5. Dynamic Arrays
+Single-Dimensional
+
+int n;
+cin >> n;
+int *arr = new int[n];  // array in heap
+// use arr[i]
+delete[] arr;           // free array
+
+
+Array of Objects
+
+int n;
+cin >> n;
+Student *s = new Student[n];  // array of objects
+// use s[i].display();
+delete[] s;
+
+
+int rows, cols;
+cin >> rows >> cols;
+
+int **matrix = new int*[rows];
+for(int i=0; i<rows; i++)
+    matrix[i] = new int[cols];
+
+// use matrix[i][j]
+
+for(int i=0; i<rows; i++)
+    delete[] matrix[i];
+delete[] matrix;
+
+
+6. Differences Between Static & Dynamic
+
+| Feature     | Static            | Dynamic                         |
+| ----------- | ----------------- | ------------------------------- |
+| Allocation  | Compile-time      | Run-time                        |
+| Memory Area | Stack             | Heap                            |
+| Flexibility | Fixed             | Flexible                        |
+| Lifetime    | Auto (scope ends) | Until manually freed (`delete`) |
+| Example     | `Student s1;`     | `Student *s1 = new Student;`    |
