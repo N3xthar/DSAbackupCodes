@@ -56,7 +56,7 @@ Node *TreeConstructUsingQueue(int arr[], int n)
     return root;
 }
 
-void levelOrderqueue(Node *root)
+void levelOrderqueuedisplay(Node *root)
 {
     // make a queue
     queue<Node *> q;
@@ -86,5 +86,5 @@ int main()
     int n = sizeof arr / sizeof arr[0];
 
     Node* root =  TreeConstructUsingQueue(arr, n);
-    levelOrderqueue(root);
+    levelOrderqueuedisplay(root);
 }
