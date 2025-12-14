@@ -1,0 +1,56 @@
+ 🧠 Algorithm: Find All 3-Digit Even Numbers
+Input
+
+An integer array arr containing digits (0–9)
+
+Output
+
+A vector ans containing all valid 3-digit even numbers (sorted)
+
+Steps
+
+Create a frequency map
+
+Use an unordered_map<int,int> to store the count of each digit in arr.
+
+Iterate over all 3-digit even numbers
+
+Loop i from 100 to 999, incrementing by 2 (ensures even numbers only).
+
+Extract digits of the number
+
+a = units digit
+
+b = tens digit
+
+c = hundreds digit
+
+Skip invalid numbers
+
+If c == 0, skip (leading zero not allowed).
+
+Check digit availability
+
+If digit a exists in the map, decrement its count.
+
+If digit b exists in the map, decrement its count.
+
+If digit c exists in the map:
+
+Add i to the result vector.
+
+Restore frequencies
+
+Increment back the counts of a and b (backtracking).
+
+Return the result vector
+
+
+
+Time Complexity
+
+O(900) ≈ O(1) (constant)
+
+Space Complexity
+
+O(1) (only digits 0–9 stored)

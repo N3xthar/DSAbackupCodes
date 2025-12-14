@@ -1,0 +1,33 @@
+Algorithm: Top View of Binary Tree
+
+If root is NULL, return empty answer.
+
+Create a map to store
+Horizontal Distance (HD) → Node value.
+
+Create a queue to perform BFS.
+Queue will store (node, HD).
+
+Push (root, 0) into the queue.
+
+While queue is not empty:
+
+Pop front element → get node and HD.
+
+If this HD is not present in map:
+
+Store map[HD] = node->value
+(this keeps the topmost node).
+
+If left child exists:
+
+Push (left child, HD − 1) into queue.
+
+If right child exists:
+
+Push (right child, HD + 1) into queue.
+
+After traversal, iterate over the map from
+leftmost HD to rightmost HD and store values in result.
+
+Return the result vector.

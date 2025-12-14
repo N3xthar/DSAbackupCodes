@@ -1,0 +1,11 @@
+| Feature                  | **Ordered**                       | **Unordered**       |
+| ------------------------ | --------------------------------- | ------------------- |
+| Internal working         | **Balanced BST (Red-Black Tree)** | **Hash Table**      |
+| Order maintained?        | ✅ **Yes (sorted)**                | ❌ **No order**      |
+| Search / Insert / Delete | **O(log n)**                      | **O(1)** average    |
+| Worst case time          | O(log n)                          | O(n)                |
+| Memory                   | Less                              | More (hash buckets) |
+
+
+
+

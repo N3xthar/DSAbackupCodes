@@ -1,0 +1,52 @@
+PROBLEM: COUNT NICE PAIRS
+
+OBSERVATION:
+nums[i] + rev(nums[j]) = nums[j] + rev(nums[i])
+⇒ nums[i] - rev(nums[i]) = nums[j] - rev(nums[j])
+
+So, nice pairs are formed when
+(num - reverse(num)) values are equal.
+
+ALGORITHM:
+1. Create a function rev(n) to reverse a number.
+2. For each element in nums:
+   diff = nums[i] - rev(nums[i])
+3. Use a hashmap:
+   key   = diff
+   value = frequency of diff seen so far
+4. For every diff:
+   - Add current frequency to answer
+   - Increase frequency by 1
+5. Take modulo (1e9 + 7) after each addition.
+
+PSEUDO-CODE:
+map = empty hashmap
+count = 0
+MOD = 1000000007
+
+for each num in nums:
+    diff = num - reverse(num)
+    count = (count + map[diff]) % MOD
+    map[diff]++
+
+RETURN count
+
+KEY POINTS:
+- Key = nums[i] - reverse(nums[i])
+- Value = frequency
+- Same key ⇒ nice pair
+- map[key] returns 0 if key not present
+- Modulo always on full sum
+
+TIME COMPLEXITY:
+O(n)
+
+SPACE COMPLEXITY:
+O(n)
+
+MOD VALUE:
+1000000007  (1e9 + 7, 9 zeros)
+
+REVISION LINE:
+"Same (num - reverse(num)) forms nice pairs"
+
