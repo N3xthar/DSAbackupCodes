@@ -1,0 +1,92 @@
+children               → next characters
+countWordsStarting     → kitne words is node se pass hote hain
+countWordsEndingHere   → kitne words exactly yahin khatam hote hain
+terminal               → koi word yahin end hota hai ya nahi
+
+
+
+
+INSERT(word) — Algorithm
+
+Steps:
+
+root se start karo
+
+word ke har character ke liye:
+
+agar child exist nahi karta → new node banao
+
+child pe move karo
+
+countWordsStarting++
+
+last node pe:
+
+countWordsEndingHere++
+
+terminal = true
+
+Logic:
+
+prefix count badhta hai har node pe
+
+exact word count sirf last node pe
+
+⏱ Time: O(length of word)
+
+
+
+COUNT WORDS ENDING TO (exact match)
+
+Steps:
+
+root se word traverse karo
+
+agar kahin path break ho jaye → return 0
+
+last node ka countWordsEndingHere return karo
+
+Logic:
+
+exact word ka count last node me stored hota hai
+
+⏱ Time: O(length of word)
+
+COUNT WORDS STARTING WITH (prefix)
+
+Steps:
+
+root se prefix traverse karo
+
+agar prefix exist nahi karta → 0
+
+prefix ke last node ka countWordsStarting return karo
+
+Logic:
+
+jitne words is node se pass hue = prefix count
+
+⏱ Time: O(length of prefix)
+
+
+ERASE(word) — Algorithm
+
+Steps:
+
+root se word traverse karo
+
+har node pe:
+
+countWordsStarting--
+
+last node pe:
+
+countWordsEndingHere--
+
+Logic:
+
+erase = reverse of insert
+
+nodes delete nahi karte, sirf counts kam karte hain
+
+⏱ Time: O(length of word)
